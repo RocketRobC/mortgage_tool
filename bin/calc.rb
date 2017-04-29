@@ -7,6 +7,7 @@ class Calc < Sinatra::Base
     enable :sessions
     set :public_folder, File.join(File.dirname(__FILE__), '../public')
     set :views, File.join(File.dirname(__FILE__), '../views')
+    set :bind, '0.0.0.0'
   end
 
   get '/' do
