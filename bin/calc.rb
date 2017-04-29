@@ -4,21 +4,20 @@ require 'mortgage_calc'
 
 class Calc < Sinatra::Base
   configure do
-    enable :sessions
-    set :server,  :puma
+    set :server, :thin
     set :public_folder, File.join(File.dirname(__FILE__), '../public')
     set :views, File.join(File.dirname(__FILE__), '../views')
     set :bind, '0.0.0.0'
+    set :data, MortgageCalc::Dashboard.new
   end
 
   get '/' do
-    @data = session[:data] || MortgageCalc::Dashboard.new
+    @data = settings.data
     haml :index
   end
 
   post '/calculate' do
-    session[:data] = MortgageCalc::Dashboard.new(params_data)
-    redirect back
+    settings.data = MortgageCalc::Dashboard.new(params_data)
   end
 
   def params_data
