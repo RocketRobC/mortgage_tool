@@ -5,6 +5,7 @@ require 'mortgage_calc'
 class Calc < Sinatra::Base
   configure do
     enable :sessions
+    set :server,  :puma
     set :public_folder, File.join(File.dirname(__FILE__), '../public')
     set :views, File.join(File.dirname(__FILE__), '../views')
     set :bind, '0.0.0.0'
