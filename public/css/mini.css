@@ -170,6 +170,7 @@ a {
 */
 .container {
   margin: 0 auto;
+  max-width: 112.0rem;
   padding: 0 10px; }
 
 .row {

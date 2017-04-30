@@ -1,39 +1,42 @@
 %h1 Mortgage Interest Calculator
-.row
-  .card.fluid
-    .section
-      %h2 Income / Expense
-      .form
-        .fieldset
+%form{ method: 'post', action: '/calculate' }
+  .row
+    .col-sm-12.responsive-margin
+      .fieldset
+        %legend
+          %h2 Income / Expense
           .input-group.fluid
             %label{ for: 'income' } Income
-            %input{ type: 'text', id: 'income', name: 'income', value: @data.income }
+            %input{ type: 'text', id: 'income', name: 'income', value: data.income }
             %label{ for: 'expense' } Expense
-            %input{ type: 'text', id: 'expense', name: 'expense', value: @data.expense }
-      %h3= "Fortnightly Income: #{@data.fortnightly_income}"
-.row
-  .card.fluid
-    .section
-      %h2 Mortgage
-      .form
-        .fieldset
+            %input{ type: 'text', id: 'expense', name: 'expense', value: data.expense }
+        %h4= "Fortnightly Income: #{data.fortnightly_income}"
+  .row
+    .col-sm-12.responsive-margin
+      .fieldset
+        %legend
+          %h2 Mortgage
           .input-group.fluid
             %label{ for: 'amount' } Amount
-            %input{ type: 'text', id: 'amount', name: 'amount', value: @data.loan_amount }
+            %input{ type: 'text', id: 'amount', name: 'amount', value: data.loan_amount }
             %label{ for: 'base-rate' } Rate
-            %input{ type: 'text', id: 'base-rate', name: 'base_rate', value: @data.base_rate }
+            %input{ type: 'text', id: 'base-rate', name: 'base_rate', value: data.base_rate }
             %label{ for: 'increment' } Increment
-            %input{ type: 'text', id: 'increment', name: 'increment', value: @data.increment }
-            %input{ type: 'button', class: 'primary', value: 'Calculate', id: 'calculate' }
-    .section 
-      %table
+            %input{ type: 'text', id: 'increment', name: 'increment', value: data.increment }
+            %input{ type: 'submit', class: 'button primary', value: 'Calculate' }
+%br
+  .row
+    .col-sm-12.responsive-margin
+      %table{ class: 'striped' }
+        %caption
+          Rates
         %thead
           %tr
             %th= 'Rate'
             %th= 'Annual'
             %th= 'Fortnight'
             %th= 'Fortnightly Diff'
-          - @data.interest.each do |rate|
+          - data.interest.each do |rate|
             %tr
               %td= rate.rate
               %td= rate.annual
