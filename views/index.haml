@@ -1,34 +1,30 @@
 %h1 Mortgage Interest Calculator
 %form{ method: 'post', action: '/calculate' }
   .row
-    .col-sm-12.responsive-margin
+    .column.column-50
+      %h2 Income / Expense
       .fieldset
-        %legend
-          %h2 Income / Expense
-          .input-group.fluid
-            %label{ for: 'income' } Income
-            %input{ type: 'text', id: 'income', name: 'income', value: data.income }
-            %label{ for: 'expense' } Expense
-            %input{ type: 'text', id: 'expense', name: 'expense', value: data.expense }
-        %h4= "Fortnightly Income: #{data.fortnightly_income}"
+        %label{ for: 'income' } Income
+        %input{ type: 'text', id: 'income', name: 'income', value: data.income }
+        %label{ for: 'expense' } Expense
+        %input{ type: 'text', id: 'expense', name: 'expense', value: data.expense }
+      %h4= "Fortnightly Income: #{data.fortnightly_income}"
   .row
-    .col-sm-12.responsive-margin
+    .column.column-50
+      %h2 Mortgage
       .fieldset
-        %legend
-          %h2 Mortgage
-          .input-group.fluid
-            %label{ for: 'amount' } Amount
-            %input{ type: 'text', id: 'amount', name: 'amount', value: data.loan_amount }
-            %label{ for: 'base-rate' } Rate
-            %input{ type: 'text', id: 'base-rate', name: 'base_rate', value: data.base_rate }
-            %label{ for: 'increment' } Increment
-            %input{ type: 'text', id: 'increment', name: 'increment', value: data.increment }
-            %input{ type: 'submit', class: 'button primary', value: 'Calculate' }
+        %label{ for: 'amount' } Amount
+        %input{ type: 'text', id: 'amount', name: 'amount', value: data.loan_amount }
+        %label{ for: 'base-rate' } Rate
+        %input{ type: 'text', id: 'base-rate', name: 'base_rate', value: data.base_rate }
+        %label{ for: 'increment' } Increment
+        %input{ type: 'text', id: 'increment', name: 'increment', value: data.increment }
+        %input{ type: 'submit', class: 'button primary', value: 'Calculate' }
 %br
   .row
-    .col-sm-12.responsive-margin
-      %table{ class: 'striped' }
-        %caption
+    .column.column-50
+      %table
+        %h2
           Rates
         %thead
           %tr
