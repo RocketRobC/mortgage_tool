@@ -32,9 +32,11 @@
             %th= 'Annual'
             %th= 'Fortnight'
             %th= 'Fortnightly Diff'
+            %th= 'Weekly Diff'
           - data.interest.each do |rate|
             %tr
               %td= rate.rate
               %td= rate.annual
               %td= rate.fortnight
               %td= rate.diff
+              %td= rate.weekly_diff

@@ -26,7 +26,8 @@ module MortgageCalc
         OpenStruct.new(rate: percentage(rate),
                        annual: annual_interest(rate).round(2),
                        fortnight: fortnightly_interest(rate).round(2),
-                       diff: fortnightly_diff(rate).round(2))
+                       diff: fortnightly_diff(rate).round(2),
+                       weekly_diff: fortnightly_diff(rate).round(2) / 2)
       end
     end
 
